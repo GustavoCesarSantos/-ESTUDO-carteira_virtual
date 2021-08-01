@@ -1,21 +1,42 @@
+import Cpf from './Cpf';
+import Transaction from './Transaction';
+
 export default class VirtualWallet {
+  cpf: Cpf;
+
   total: number;
 
-  constructor() {
+  transactions: Transaction[];
+
+  constructor(cpf: string) {
+    this.cpf = new Cpf(cpf);
     this.total = 0;
+    this.transactions = [];
+  }
+
+  getCpf(): string {
+    return this.cpf.value;
+  }
+
+  getTotal(): number {
+    const { total } = this;
+    return total;
+  }
+
+  getTransactions(): Transaction[] {
+    return this.transactions;
+  }
+
+  setTransaction(transaction: Transaction): void {
+    this.transactions.push(transaction);
   }
 
   deposit(value: number): void {
     this.total += value;
   }
 
-  withDraw(value: number): void {
-    if (value > this.total) throw new Error('Saldo indisponivel');
+  withdraw(value: number): void {
+    if (value > this.total) throw new Error('Insufficient funds');
     this.total -= value;
-  }
-
-  getTotal(): number {
-    const { total } = this;
-    return total;
   }
 }
