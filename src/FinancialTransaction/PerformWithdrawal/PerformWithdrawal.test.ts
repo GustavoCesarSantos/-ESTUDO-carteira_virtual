@@ -1,7 +1,7 @@
-import FinancialTransactionRepositoryMemory from './FinancialTransactionRepositoryMemory';
+import FinancialTransactionRepositoryMemory from '../FinancialTransactionRepositoryMemory';
 import PerformWithdrawal from './PerformWithdrawal';
 import PerformWithdrawalRequestDTO from './PerformWithdrawalRequestDTO';
-import VirtualWalletRepositoryMemory from './VirtualWalletRepositoryMemory';
+import VirtualWalletRepositoryMemory from '../../VirtualWallet/VirtualWalletRepositoryMemory';
 
 let performWithdrawal: PerformWithdrawal;
 

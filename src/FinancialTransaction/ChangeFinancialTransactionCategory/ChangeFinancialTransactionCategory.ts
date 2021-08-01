@@ -1,5 +1,5 @@
 import ChangeFinancialTransactionCategoryRequestDTO from './ChangeFinancialTransactionCategoryRequestDTO';
-import FinancialTransactionRepository from './FinancialTransactionRepository';
+import FinancialTransactionRepository from '../FinancialTransactionRepository';
 
 export default class ChangeFinancialTransactionCategory {
   financialTransactionRepository: FinancialTransactionRepository;

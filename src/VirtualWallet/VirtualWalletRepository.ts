@@ -1,4 +1,4 @@
-import Transaction from './Transaction';
+import Transaction from '../Value objects/Transaction';
 import VirtualWallet from './VirtualWallet';
 
 export default interface VirtualWalletRepository {

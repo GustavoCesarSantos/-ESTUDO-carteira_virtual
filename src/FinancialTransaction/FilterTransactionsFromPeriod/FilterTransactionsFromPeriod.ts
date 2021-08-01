@@ -1,5 +1,5 @@
 import FilterTransactionsFromPeriodRequestDTO from './FilterTransactionsFromPeriodRequestDTO';
-import VirtualWalletRepository from './VirtualWalletRepository';
+import VirtualWalletRepository from '../../VirtualWallet/VirtualWalletRepository';
 
 export default class FilterTransactionsFromPeriod {
   virtualWalletRepository: VirtualWalletRepository;

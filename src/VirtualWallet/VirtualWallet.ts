@@ -1,5 +1,5 @@
-import Cpf from './Cpf';
-import Transaction from './Transaction';
+import Cpf from '../Value objects/Cpf';
+import Transaction from '../Value objects/Transaction';
 
 export default class VirtualWallet {
   cpf: Cpf;

@@ -1,6 +1,6 @@
 import ReturnWalletBalance from './ReturnWalletBalance';
 import ReturnWalletBalanceRequestDTO from './ReturnWalletBalanceRequestDTO';
-import VirtualWalletRepositoryMemory from './VirtualWalletRepositoryMemory';
+import VirtualWalletRepositoryMemory from '../VirtualWalletRepositoryMemory';
 
 let returnWalletBalance: ReturnWalletBalance;
 

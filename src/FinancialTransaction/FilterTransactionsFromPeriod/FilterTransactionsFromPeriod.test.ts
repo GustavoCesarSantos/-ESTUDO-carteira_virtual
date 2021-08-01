@@ -1,6 +1,6 @@
 import FilterTransactionsFromPeriod from './FilterTransactionsFromPeriod';
 import FilterTransactionsFromPeriodRequestDTO from './FilterTransactionsFromPeriodRequestDTO';
-import VirtualWalletRepositoryMemory from './VirtualWalletRepositoryMemory';
+import VirtualWalletRepositoryMemory from '../../VirtualWallet/VirtualWalletRepositoryMemory';
 
 let filterTransactionsFromPeriod: FilterTransactionsFromPeriod;
 

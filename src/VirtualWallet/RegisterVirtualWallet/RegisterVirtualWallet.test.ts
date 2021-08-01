@@ -1,6 +1,6 @@
 import RegisterVirtualWallet from './RegisterVirtualWallet';
 import RegisterVirtualWalletRequestDTO from './RegisterVirtualWalletRequestDTO';
-import VirtualWalletRepositoryMemory from './VirtualWalletRepositoryMemory';
+import VirtualWalletRepositoryMemory from '../VirtualWalletRepositoryMemory';
 
 let registerVirtualWallet: RegisterVirtualWallet;
 

@@ -1,6 +1,6 @@
 import ChangeFinancialTransactionCategory from './ChangeFinancialTransactionCategory';
 import ChangeFinancialTransactionCategoryRequestDTO from './ChangeFinancialTransactionCategoryRequestDTO';
-import FinancialTransactionRepositoryMemory from './FinancialTransactionRepositoryMemory';
+import FinancialTransactionRepositoryMemory from '../FinancialTransactionRepositoryMemory';
 
 let changeFinancialTransactionCategory: ChangeFinancialTransactionCategory;
 

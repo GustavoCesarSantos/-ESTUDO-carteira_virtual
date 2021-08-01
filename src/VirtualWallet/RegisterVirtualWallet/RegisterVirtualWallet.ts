@@ -1,5 +1,5 @@
-import VirtualWallet from './VirtualWallet';
-import VirtualWalletRepository from './VirtualWalletRepository';
+import VirtualWallet from '../VirtualWallet';
+import VirtualWalletRepository from '../VirtualWalletRepository';
 import RegisterVirtualWalletRequestDTO from './RegisterVirtualWalletRequestDTO';
 
 export default class RegisterVirtualWallet {

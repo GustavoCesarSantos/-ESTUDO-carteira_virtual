@@ -1,7 +1,7 @@
-import FinancialTransaction from './FinancialTransaction';
-import FinancialTransactionRepository from './FinancialTransactionRepository';
+import FinancialTransaction from '../FinancialTransaction';
+import FinancialTransactionRepository from '../FinancialTransactionRepository';
 import PerformWithdrawalRequestDTO from './PerformWithdrawalRequestDTO';
-import VirtualWalletRepository from './VirtualWalletRepository';
+import VirtualWalletRepository from '../../VirtualWallet/VirtualWalletRepository';
 
 export default class PerformWithdrawal {
   financialTransactionRepository: FinancialTransactionRepository;

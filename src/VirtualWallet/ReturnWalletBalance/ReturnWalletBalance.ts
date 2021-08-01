@@ -1,6 +1,6 @@
 import ReturnWalletBalanceRequestDTO from './ReturnWalletBalanceRequestDTO';
 import ReturnWalletBalanceResponseDTO from './ReturnWalletBalanceResponseDTO';
-import VirtualWalletRepository from './VirtualWalletRepository';
+import VirtualWalletRepository from '../VirtualWalletRepository';
 
 export default class ReturnWalletBalance {
   virtualWalletRepository: VirtualWalletRepository;
