@@ -7,8 +7,8 @@ describe('Virtual wallet test', () => {
 
   it('Should not make a withdraw', () => {
     const wallet = new VirtualWallet('090.112.550-46');
-    wallet.deposit(1000);
-    expect(() => wallet.withdraw(10000)).toThrow(new Error('Insufficient funds'));
+    wallet.deposit(50);
+    expect(() => wallet.withdraw(51)).toThrow(new Error('Insufficient funds'));
   });
 
   it('Should create a wallet', () => {

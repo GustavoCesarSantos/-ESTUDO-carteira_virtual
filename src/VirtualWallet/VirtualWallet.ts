@@ -1,17 +1,13 @@
-import Cpf from '../Value objects/Cpf';
-import Transaction from '../Value objects/Transaction';
+import Cpf from './valueObjects/Cpf';
 
 export default class VirtualWallet {
   cpf: Cpf;
 
   total: number;
 
-  transactions: Transaction[];
-
   constructor(cpf: string) {
     this.cpf = new Cpf(cpf);
     this.total = 0;
-    this.transactions = [];
   }
 
   getCpf(): string {
@@ -21,14 +17,6 @@ export default class VirtualWallet {
   getTotal(): number {
     const { total } = this;
     return total;
-  }
-
-  getTransactions(): Transaction[] {
-    return this.transactions;
-  }
-
-  setTransaction(transaction: Transaction): void {
-    this.transactions.push(transaction);
   }
 
   deposit(value: number): void {
