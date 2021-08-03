@@ -1,5 +1,5 @@
 import VirtualWallet from '../VirtualWallet';
-import VirtualWalletRepository from '../VirtualWalletRepository';
+import VirtualWalletRepository from '../adapters/repository/VirtualWalletRepository';
 import RegisterVirtualWalletRequestDTO from './RegisterVirtualWalletRequestDTO';
 
 export default class RegisterVirtualWallet {
@@ -9,9 +9,8 @@ export default class RegisterVirtualWallet {
     this.virtualWalletRepository = virtualWalletRepository;
   }
 
-  execute(registerVirtualWalletRequest: RegisterVirtualWalletRequestDTO): void {
-    const alreadyExists = this.virtualWalletRepository.findByCpf(registerVirtualWalletRequest.cpf);
-    if (alreadyExists) throw new Error('Already exists a wallet vinculated with this cpf');
+  async execute(registerVirtualWalletRequest: RegisterVirtualWalletRequestDTO): Promise<void> {
+    await this.virtualWalletRepository.findWallet(registerVirtualWalletRequest.cpf);
     const virtualWallet = new VirtualWallet(registerVirtualWalletRequest.cpf);
     this.virtualWalletRepository.save(virtualWallet);
   }
