@@ -1,6 +1,6 @@
 import ReturnWalletBalanceRequestDTO from './ReturnWalletBalanceRequestDTO';
 import ReturnWalletBalanceResponseDTO from './ReturnWalletBalanceResponseDTO';
-import VirtualWalletRepository from '../VirtualWalletRepository';
+import VirtualWalletRepository from '../adapters/repository/VirtualWalletRepository';
 
 export default class ReturnWalletBalance {
   virtualWalletRepository: VirtualWalletRepository;
@@ -11,9 +11,8 @@ export default class ReturnWalletBalance {
     this.virtualWalletRepository = virtualWalletRepository;
   }
 
-  execute(returnWalletBalanceRequestDTO: ReturnWalletBalanceRequestDTO): ReturnWalletBalanceResponseDTO {
-    const virtualWallet = this.virtualWalletRepository.findByCpf(returnWalletBalanceRequestDTO.cpf);
-    if (!virtualWallet) throw new Error('This wallet not exists');
+  async execute(returnWalletBalanceRequestDTO: ReturnWalletBalanceRequestDTO): Promise<ReturnWalletBalanceResponseDTO> {
+    const virtualWallet = await this.virtualWalletRepository.findByCpf(returnWalletBalanceRequestDTO.cpf);
     const returnWalletBalanceResponseDTO = new ReturnWalletBalanceResponseDTO(virtualWallet.getTotal());
     return returnWalletBalanceResponseDTO;
   }
