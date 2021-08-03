@@ -1,9 +1,9 @@
 import FinancialTransaction from '../FinancialTransaction';
-import FinancialTransactionRepository from '../FinancialTransactionRepository';
+import FinancialTransactionRepository from '../adapters/repository/FinancialTransactionRepository';
 import PerformDepositRequestDTO from './PerformDepositRequestDTO';
-import VirtualWalletRepository from '../../VirtualWallet/VirtualWalletRepository';
+import VirtualWalletRepository from '../../VirtualWallet/adapters/repository/VirtualWalletRepository';
 
-export default class PerformeDeposit {
+export default class PerformDeposit {
   financialTransactionRepository: FinancialTransactionRepository;
 
   virtualWalletRepository: VirtualWalletRepository;
@@ -16,12 +16,10 @@ export default class PerformeDeposit {
     this.virtualWalletRepository = virtualWalletRepository;
   }
 
-  execute(performDepositRequestDTO: PerformDepositRequestDTO) {
-    const virtualWallet = this.virtualWalletRepository.findByCpf(performDepositRequestDTO.cpf);
-    if (!virtualWallet) throw new Error('This wallet not exists');
-    virtualWallet?.deposit(performDepositRequestDTO.value);
-    virtualWallet?.setTransaction(performDepositRequestDTO);
-    this.virtualWalletRepository.updateVirtualWallet(virtualWallet.getCpf(), virtualWallet.getTotal(), virtualWallet.getTransactions());
+  async execute(performDepositRequestDTO: PerformDepositRequestDTO): Promise<void> {
+    const virtualWallet = await this.virtualWalletRepository.findByCpf(performDepositRequestDTO.cpf);
+    virtualWallet.deposit(performDepositRequestDTO.value);
+    this.virtualWalletRepository.updateVirtualWallet(virtualWallet.getCpf(), virtualWallet.getTotal());
     const financialTransaction = new FinancialTransaction(performDepositRequestDTO);
     this.financialTransactionRepository.save(financialTransaction);
   }
